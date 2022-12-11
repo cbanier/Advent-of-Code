@@ -4,18 +4,21 @@
 
 using namespace std;
 
-int contains_rule_part1(int min1, int max1, int min2, int max2) {
+int contains_rule_part1(const int& min1, const int& max1, const int& min2,
+                        const int& max2) {
   if ((min1 <= min2 && max1 >= max2) || (min1 >= min2 && max1 <= max2))
     return 1;
   return 0;
 }
 
-int contains_rule_part2(int min1, int max1, int min2, int max2) {
+int contains_rule_part2(const int& min1, const int& max1, const int& min2,
+                        const int& max2) {
   if (min1 <= max2 && min2 <= max1) return 1;
   return 0;
 }
 
-void camp_cleanup(string filename, int (*func)(int, int, int, int)) {
+void camp_cleanup(const string& filename,
+                  int (*func)(const int&, const int&, const int&, const int&)) {
   ifstream fileInput;
   fileInput.open(filename);
 

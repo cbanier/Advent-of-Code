@@ -9,18 +9,19 @@ using namespace std;
 /* ***************************************************************** */
 /* *                            PART 1                             * */
 /* ***************************************************************** */
-int score_common_letter(string left, string right, map<char, int>& priorities) {
+int score_common_letter(const string& left, const string& right,
+                        const map<char, int>& priorities) {
   int score = 0;
   for (char letter : left) {
     if (right.find(letter) != string::npos) {
-      score = priorities[letter];
+      score = priorities.at(letter);
       break;
     }
   }
   return score;
 }
 
-void rucksack_part1(string filename, map<char, int>& priorities) {
+void rucksack_part1(const string& filename, const map<char, int>& priorities) {
   ifstream fileInput;
   fileInput.open(filename);
 
@@ -46,13 +47,13 @@ void rucksack_part1(string filename, map<char, int>& priorities) {
 /* *                            PART 2                             * */
 /* ***************************************************************** */
 int score_from_group_of_3string(vector<string>& vec,
-                                map<char, int>& priorities) {
+                                const map<char, int>& priorities) {
   int score = 0;
   for (char letter_fword : vec.front()) {
     for (char letter_sword : vec.at(1)) {
       if (letter_fword == letter_sword &&
           vec.back().find(letter_fword) != string::npos) {
-        score = priorities[letter_fword];
+        score = priorities.at(letter_fword);
         break;
       }
     }
@@ -60,7 +61,7 @@ int score_from_group_of_3string(vector<string>& vec,
   return score;
 }
 
-void rucksack_part2(string filename, map<char, int>& priorities) {
+void rucksack_part2(const string& filename, const map<char, int>& priorities) {
   ifstream fileInput;
   fileInput.open(filename);
 
@@ -85,7 +86,7 @@ void rucksack_part2(string filename, map<char, int>& priorities) {
 }
 
 int main() {
-  map<char, int> priorities = {
+  const map<char, int> priorities = {
       {'a', 1},  {'b', 2},  {'c', 3},  {'d', 4},  {'e', 5},  {'f', 6},
       {'g', 7},  {'h', 8},  {'i', 9},  {'j', 10}, {'k', 11}, {'l', 12},
       {'m', 13}, {'n', 14}, {'o', 15}, {'p', 16}, {'q', 17}, {'r', 18},

@@ -7,17 +7,17 @@
 
 using namespace std;
 
-void display_answer(map<int, stack<char>> *stacks) {
+void display_answer(const map<int, stack<char>> &stacks) {
   string answer;
-  for (int i = 0; i < stacks->size(); ++i) {
-    answer += (stacks->at(i).top());
+  for (int i = 0; i < stacks.size(); ++i) {
+    answer += (stacks.at(i).top());
   }
   cout << answer << endl;
 }
 
-void create_stacks_from_input(vector<string> *stack_elements,
-                              map<int, stack<char>> *stacks) {
-  int nb_stack = stack_elements->size();
+void create_stacks_from_input(const vector<string> &stack_elements,
+                              map<int, stack<char>> &stacks) {
+  int nb_stack = stack_elements.size();
 
   int index = 0;
   stack<char> tmp_stack;
@@ -28,10 +28,10 @@ void create_stacks_from_input(vector<string> *stack_elements,
     for (int i = nb_stack - 2; i >= 0;
          --i) {  // nb_stack - 2 because there is a number at the end
 
-      if (stack_elements->at(i)[s] != ' ')
-        tmp_stack.push(stack_elements->at(i)[s]);
+      if (stack_elements.at(i)[s] != ' ')
+        tmp_stack.push(stack_elements.at(i)[s]);
     }
-    stacks->insert(make_pair(index, tmp_stack));
+    stacks.insert(make_pair(index, tmp_stack));
 
     /* clear the temporary stack */
     while (!tmp_stack.empty()) tmp_stack.pop();
@@ -43,9 +43,9 @@ void create_stacks_from_input(vector<string> *stack_elements,
 /* ***************************************************************** */
 /* *                            PART 1                             * */
 /* ***************************************************************** */
-void cratemover(vector<string> *moves, map<int, stack<char>> *stacks) {
+void cratemover(const vector<string> &moves, map<int, stack<char>> &stacks) {
   int nb_to_move, stack_from, stack_to;
-  for (string current_move : *moves) {
+  for (string current_move : moves) {
     current_move = current_move.substr(
         current_move.find("move") + string("move ").size());  // remove 'move '
 
@@ -60,9 +60,9 @@ void cratemover(vector<string> *moves, map<int, stack<char>> *stacks) {
                1;
 
     for (int i = 0; i < nb_to_move; ++i) {
-      if (!stacks->at(stack_from).empty()) {
-        stacks->at(stack_to).push(stacks->at(stack_from).top());
-        stacks->at(stack_from).pop();
+      if (!stacks.at(stack_from).empty()) {
+        stacks.at(stack_to).push(stacks.at(stack_from).top());
+        stacks.at(stack_from).pop();
       }
     }
   }
@@ -71,9 +71,10 @@ void cratemover(vector<string> *moves, map<int, stack<char>> *stacks) {
 /* ***************************************************************** */
 /* *                            PART 2                             * */
 /* ***************************************************************** */
-void cratemover9001(vector<string> *moves, map<int, stack<char>> *stacks) {
+void cratemover9001(const vector<string> &moves,
+                    map<int, stack<char>> &stacks) {
   int nb_to_move, stack_from, stack_to;
-  for (string current_move : *moves) {
+  for (string current_move : moves) {
     current_move = current_move.substr(
         current_move.find("move") + string("move ").size());  // remove 'move '
 
@@ -88,31 +89,31 @@ void cratemover9001(vector<string> *moves, map<int, stack<char>> *stacks) {
                1;
 
     if (nb_to_move == 1) {
-      if (!stacks->at(stack_from).empty()) {
-        stacks->at(stack_to).push(stacks->at(stack_from).top());
-        stacks->at(stack_from).pop();
+      if (!stacks.at(stack_from).empty()) {
+        stacks.at(stack_to).push(stacks.at(stack_from).top());
+        stacks.at(stack_from).pop();
       }
 
     } else {
       stack<char> tmp_stack;
       for (int i = 0; i < nb_to_move; ++i) {
-        if (!stacks->at(stack_from).empty()) {
-          tmp_stack.push(stacks->at(stack_from).top());
-          stacks->at(stack_from).pop();
+        if (!stacks.at(stack_from).empty()) {
+          tmp_stack.push(stacks.at(stack_from).top());
+          stacks.at(stack_from).pop();
         }
       }
 
       for (int j = 0; j < nb_to_move; ++j) {
-        stacks->at(stack_to).push(tmp_stack.top());
+        stacks.at(stack_to).push(tmp_stack.top());
         tmp_stack.pop();
       }
     }
   }
 }
 
-void supply_stack(string filename,
-                  void (*crate_func)(vector<string> *,
-                                     map<int, stack<char>> *)) {
+void supply_stack(const string &filename,
+                  void (*crate_func)(const vector<string> &,
+                                     map<int, stack<char>> &)) {
   ifstream fileInput;
   fileInput.open(filename);
 
@@ -131,9 +132,9 @@ void supply_stack(string filename,
   fileInput.close();
 
   map<int, stack<char>> stacks;
-  create_stacks_from_input(&stack_elements, &stacks);
-  crate_func(&moves, &stacks);
-  display_answer(&stacks);
+  create_stacks_from_input(stack_elements, stacks);
+  crate_func(moves, stacks);
+  display_answer(stacks);
 }
 
 int main() {

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void max_calorie_counter(string filename) {
+void max_calorie_counter(const string& filename) {
   ifstream fileInput;
   fileInput.open(filename);
 
@@ -26,7 +26,7 @@ void max_calorie_counter(string filename) {
   cout << "\nMaximum of calories is : " << max << endl;
 }
 
-void max3_calorie_counter(string filename) {
+void max3_calorie_counter(const string& filename) {
   ifstream fileInput;
   fileInput.open(filename);
 

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int letter_value(char& letter) {
+int letter_value(const char& letter) {
   int value;
   switch (letter) {
     case 'X':
@@ -39,7 +39,7 @@ void reformat_letter(char& letter) {
 /* ***************************************************************** */
 /* *                            PART 1                             * */
 /* ***************************************************************** */
-int rules_part1(char& elf, char& me) {
+int rules_part1(char& elf, const char& me) {
   reformat_letter(elf);
 
   // same value
@@ -54,7 +54,7 @@ int rules_part1(char& elf, char& me) {
   return letter_value(me);
 }
 
-void rock_paper_scissors_part1(string filename) {
+void rock_paper_scissors_part1(const string& filename) {
   ifstream fileInput;
   fileInput.open(filename);
 
@@ -76,7 +76,7 @@ void rock_paper_scissors_part1(string filename) {
 /* ***************************************************************** */
 /* *                            PART 2                             * */
 /* ***************************************************************** */
-int rules_part2(char& elf, char& which_end) {
+int rules_part2(char& elf, const char& which_end) {
   reformat_letter(elf);
 
   int score;
@@ -113,7 +113,7 @@ int rules_part2(char& elf, char& which_end) {
   return letter_value(strategy) + score;
 }
 
-void rock_paper_scissors_part2(string filename) {
+void rock_paper_scissors_part2(const string& filename) {
   ifstream fileInput;
   fileInput.open(filename);
 
