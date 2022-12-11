@@ -21,6 +21,8 @@ add_executable(camp_cleanup day4.cpp)
 add_executable(supply day5.cpp)
 
 # DAY 6 executable
+add_executable(marker day6.cpp)
+
 # DAY 7 executable
 # DAY 8 executable
 # DAY 9 executable
