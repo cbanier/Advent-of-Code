@@ -68,10 +68,10 @@ void max3_calorie_counter(const string& filename) {
 
 int main() {
   /* PART 1 */
-  max_calorie_counter("../data/data_day1.txt");
+  max_calorie_counter("../../data/day1.txt");
 
   /* PART 2 */
-  max3_calorie_counter("../data/data_day1.txt");
+  max3_calorie_counter("../../data/day1.txt");
 
   return EXIT_SUCCESS;
 }

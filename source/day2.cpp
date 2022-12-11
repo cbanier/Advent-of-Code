@@ -134,10 +134,10 @@ void rock_paper_scissors_part2(const string& filename) {
 
 int main() {
   /* PART 1 */
-  rock_paper_scissors_part1("../data/data_day2.txt");
+  rock_paper_scissors_part1("../../data/day2.txt");
 
   /* PART 2 */
-  rock_paper_scissors_part2("../data/data_day2.txt");
+  rock_paper_scissors_part2("../../data/day2.txt");
 
   return EXIT_SUCCESS;
 }

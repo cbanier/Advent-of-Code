@@ -98,10 +98,10 @@ int main() {
       {'W', 49}, {'X', 50}, {'Y', 51}, {'Z', 52}};
 
   /* PART 1 */
-  rucksack_part1("../data/data_day3.txt", priorities);
+  rucksack_part1("../../data/day3.txt", priorities);
 
   /* PART 2 */
-  rucksack_part2("../data/data_day3.txt", priorities);
+  rucksack_part2("../../data/day3.txt", priorities);
 
   return EXIT_SUCCESS;
 }

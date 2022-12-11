@@ -140,11 +140,11 @@ void supply_stack(const string &filename,
 int main() {
   /* PART 1 */
   cout << "Part 1 : ";
-  supply_stack("../data/data_day5.txt", cratemover);
+  supply_stack("../../data/day5.txt", cratemover);
 
   /* PART 2 */
   cout << "Part 2 : ";
-  supply_stack("../data/data_day5.txt", cratemover9001);
+  supply_stack("../../data/day5.txt", cratemover9001);
 
   return EXIT_SUCCESS;
 }

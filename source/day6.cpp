@@ -51,10 +51,10 @@ void marker_finder(const string &filename, const int &marker_size) {
 
 int main() {
   /* PART 1 */
-  marker_finder("../data/data_day6.txt", 4);
+  marker_finder("../../data/day6.txt", 4);
 
   /* PART 2 */
-  marker_finder("../data/data_day6.txt", 14);
+  marker_finder("../../data/day6.txt", 14);
 
   return EXIT_SUCCESS;
 }

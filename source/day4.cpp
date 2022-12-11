@@ -49,11 +49,11 @@ void camp_cleanup(const string& filename,
 int main() {
   /* PART 1 */
   cout << "\nPart 1" << endl;
-  camp_cleanup("../data/data_day4.txt", contains_rule_part1);
+  camp_cleanup("../../data/day4.txt", contains_rule_part1);
 
   /* PART 2 */
   cout << "\nPart 2" << endl;
-  camp_cleanup("../data/data_day4.txt", contains_rule_part2);
+  camp_cleanup("../../data/day4.txt", contains_rule_part2);
 
   return EXIT_SUCCESS;
 }

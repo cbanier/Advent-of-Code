@@ -6,4 +6,6 @@ mkdir build
 cd build/
 cmake ..
 make
+cd source/
+./<exec_name>
 ```
