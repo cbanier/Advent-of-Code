@@ -20,6 +20,8 @@ add_executable(supply day5.cpp)
 add_executable(marker day6.cpp)
 
 # DAY 7 executable
+add_executable(directories_size day7.cpp)
+
 # DAY 8 executable
 # DAY 9 executable
 # DAY 10 executable
